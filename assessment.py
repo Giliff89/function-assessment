@@ -194,6 +194,21 @@ def calculate_price(base_price, state, tax_rate = 0.05):
 
 ###############################################################################
 
+def add_to_list(list_of_values, *args):
+    """Add any number of values to the end of a list"""
+    new_list = list(args)
+    for item in new_list:
+        list_of_values.append(item)
+    return list_of_values
+
+def triple_word(word):
+    """Print a word 3 times in a row"""
+    def multiply_by_3(word):
+        word * 3
+
+    return word, multiply_by_3(word)
+
+
 # END OF ASSESSMENT: You can ignore everything below.
 
 if __name__ == "__main__":
