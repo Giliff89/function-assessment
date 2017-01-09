@@ -68,7 +68,25 @@ included in the doctest.
 #        here', where are you from?" depending on what the function from part
 #        (a) evaluates to.
 
+def is_hometown(town_name):
+    """Evaluates if you share a hometown"""
+    if town_name == 'Santa Clara':
+        return True
+    else:
+        return False
 
+
+def full_name(first_name, last_name):
+    """Puts together a full name"""
+    return first_name + ' ' + last_name
+
+
+def is_common_hometown(town_name, first_name, last_name):
+    """Prints greeting based on if you share a hometown or not"""
+    if is_hometown(town_name) is True:
+        print "Hi, %s, we're both from the same place!" % full_name(first_name, last_name)
+    else:
+        print "Hi %s, where are you from?" % full_name(first_name, last_name)
 
 ###############################################################################
 
@@ -81,8 +99,10 @@ included in the doctest.
 
 def is_berry(fruit):
     """Determines if fruit is a berry"""
-
-    pass
+    if fruit == 'strawberry' or fruit == 'cherry' or fruit == 'blackberry':
+        return True
+    else:
+        return False
 
 
 # (b) Write another function, shipping_cost(), which calculates shipping cost
@@ -92,8 +112,10 @@ def is_berry(fruit):
 
 def shipping_cost(fruit):
     """Calculates shipping cost of fruit"""
-
-    pass
+    if is_berry(fruit) is True:
+        return 0
+    else:
+        return 5
 
 
 # 2. Make a function that takes in a number and a list of numbers. It should
@@ -103,9 +125,8 @@ def shipping_cost(fruit):
 def append_to_list(lst, num):
     """Creates a new list consisting of the old list with the given number
        added to the end."""
-
-    pass
-
+    lst.append(num)
+    return lst
 
 
 # 3. Write a function calculate_price to calculate an item's total cost by
@@ -124,9 +145,23 @@ def append_to_list(lst, num):
 #    Your function should return the total cost of the item, including tax and
 #    fees.
 
-def calculate_price(FILL_ME_IN):
+def calculate_price(base_price, state, tax_rate = 0.05):
+    total_cost = base_price + (base_price * tax_rate)
+    if state == "CA":
+        total_cost = round(total_cost + (total_cost * 0.03))
+    elif state == "PA":
+        total_cost += 2
+    elif state == "MA":
+        if total_cost >= 100:
+            total_cost += 3
+        else:
+            total_cost += 1
+    elif tax_rate == 0:
+        int(total_cost)
+    else:
+        pass
 
-    pass
+    return total_cost
 
 
 ###############################################################################
